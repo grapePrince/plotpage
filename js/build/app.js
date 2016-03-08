@@ -5370,13 +5370,14 @@
 			key: "randomElementsFromArr",
 			value: function randomElementsFromArr(arr, num, duplicate) {
 				var i = undefined,
-				    results = [];
+				    results = [],
+				    tempArr = arr.slice();
 				for (i = 0; i < num; i++) {
-					var rand = Math.floor(Math.random() * arr.length);
+					var rand = Math.floor(Math.random() * tempArr.length);
 					if (duplicate) {
-						results[i] = arr[rand];
+						results[i] = tempArr[rand];
 					} else {
-						results[i] = arr.splice(rand, 1)[0];
+						results[i] = tempArr.splice(rand, 1)[0];
 					}
 				}
 				return results;
